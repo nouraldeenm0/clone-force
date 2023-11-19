@@ -1,2 +1,0 @@
-# CloneForce
-Analysis Assignment

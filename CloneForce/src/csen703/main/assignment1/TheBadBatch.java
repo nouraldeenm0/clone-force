@@ -19,6 +19,10 @@ package csen703.main.assignment1;
 
 public class TheBadBatch {
 	
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+
 	public static boolean TatooineToNabooDivideAndConquer(int [] fuel) {
 		return false;
 	}
