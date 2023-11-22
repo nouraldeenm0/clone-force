@@ -24,8 +24,6 @@ public class TheBadBatch {
     public static boolean TatooineToNabooDivideAndConquer(int[] fuel) {
         if (fuel[0] >= fuel.length)
             return true;
-        // System.out.println("Array: " + Arrays.toString(fuel) + " Length: " +
-        // fuel.length);
         boolean answer = false;
         boolean divide1 = false;
         boolean divide2 = false;
@@ -34,8 +32,6 @@ public class TheBadBatch {
             int[] divideFuel1 = Arrays.copyOfRange(fuel, fuel[0], fuel.length);
             // divide from the first planet i can reach
             int[] divideFuel2 = Arrays.copyOfRange(fuel, 1, fuel.length);
-            // System.out.println("First Array: " + Arrays.toString(divideFuel1));
-            // System.out.println("Second Array: " + Arrays.toString(divideFuel2));
             divide1 = TatooineToNabooDivideAndConquer(divideFuel1);
             divide2 = TatooineToNabooDivideAndConquer(divideFuel2);
         }
