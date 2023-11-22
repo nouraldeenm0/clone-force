@@ -21,16 +21,11 @@ import java.util.Arrays;
 
 public class TheBadBatch {
 
-    public static void main(String[] args) {
-        int[] fuelArray7 = { 3, 2, 1, 0, 4 };
-        TatooineToNabooDivideAndConquer(fuelArray7);
-        System.out.println("Divide and Conquer: " + TatooineToNabooDivideAndConquer(fuelArray7));
-    }
-
     public static boolean TatooineToNabooDivideAndConquer(int[] fuel) {
         if (fuel[0] >= fuel.length)
             return true;
-        System.out.println("Array: " + Arrays.toString(fuel) + " Length: " + fuel.length);
+        // System.out.println("Array: " + Arrays.toString(fuel) + " Length: " +
+        // fuel.length);
         boolean answer = false;
         boolean divide1 = false;
         boolean divide2 = false;
@@ -39,8 +34,8 @@ public class TheBadBatch {
             int[] divideFuel1 = Arrays.copyOfRange(fuel, fuel[0], fuel.length);
             // divide from the first planet i can reach
             int[] divideFuel2 = Arrays.copyOfRange(fuel, 1, fuel.length);
-            System.out.println("First Array: " + Arrays.toString(divideFuel1));
-            System.out.println("Second Array: " + Arrays.toString(divideFuel2));
+            // System.out.println("First Array: " + Arrays.toString(divideFuel1));
+            // System.out.println("Second Array: " + Arrays.toString(divideFuel2));
             divide1 = TatooineToNabooDivideAndConquer(divideFuel1);
             divide2 = TatooineToNabooDivideAndConquer(divideFuel2);
         }
@@ -50,7 +45,19 @@ public class TheBadBatch {
     }
 
     public static boolean TatooineToNabooGreedy(int[] fuel) {
-        return false;
+        int remainingFuel = fuel[0];
+        for (int i = 0; i < fuel.length; i++) {
+            // landed on the planet
+            if (fuel[i] > remainingFuel) {
+                remainingFuel = fuel[i];
+            }
+            // continued in path
+            else
+                remainingFuel--;
+            if (remainingFuel == 0)
+                return false;
+        }
+        return true;
     }
 
 }
