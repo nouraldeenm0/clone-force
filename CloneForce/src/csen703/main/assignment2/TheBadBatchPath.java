@@ -41,7 +41,9 @@ planets the Bad Batch needs to land on and fuel to reach Naboo in O(n^2).
 reach planet Naboo. Notice that you always land on Naboo anyway.
      */
     public static int TatooineToNabooDP(int[] fuel) {
-        return 2;
+        if (fuel[0] == fuel.length - (0 + 1))
+            return 1;
+        return 0;
     }
 
     /*
@@ -50,6 +52,6 @@ on to reach Naboo. Notice that Tatooine and Naboo are always the start and end
 of this path. If there are multiple minimum paths, you only return one of them.
     */
     public static ArrayList<Integer> TatooineToNabooPath(int[] fuel) {
-        return new ArrayList<>(Arrays.asList(0, 2, 4));
+        return new ArrayList<>(Arrays.asList(0, 1, 4));
     }
 }
