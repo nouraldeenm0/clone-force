@@ -43,7 +43,10 @@ reach planet Naboo. Notice that you always land on Naboo anyway.
     public static int TatooineToNabooDP(int[] fuel) {
         if (fuel[0] == fuel.length - (0 + 1))
             return 1;
-        return 0;
+        else {
+            return TatooineToNabooDP(Arrays.copyOfRange(fuel, 1, fuel.length));
+        }
+        // return 0;
     }
 
     /*
