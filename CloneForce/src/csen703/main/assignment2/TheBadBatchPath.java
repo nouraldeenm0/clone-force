@@ -106,8 +106,7 @@ public class TheBadBatchPath {
         ArrayList<Integer> path = new ArrayList<>();
 
         if (fuel.length == 1) {
-            ArrayList<Integer> base = new ArrayList<>();
-            return base;
+            return new ArrayList<>();
         }
 
         int min = Integer.MAX_VALUE;
