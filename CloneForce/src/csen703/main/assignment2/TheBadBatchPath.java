@@ -121,7 +121,7 @@ public class TheBadBatchPath {
             if (endIsReachable) {
                 int[] subArray = Arrays.copyOfRange(fuel, 0, i + 1);
 
-                // we only want to add the path if it is the minimum costing path, AI has helped here
+                // we only want to go through the minimum costing path namely [2, 3] and avoiding [2, 3, 1, 1], AI has helped here
                 int subArrayMin = helperDP(subArray) + 1;
                 if (subArrayMin < min) {
                     min = subArrayMin;
