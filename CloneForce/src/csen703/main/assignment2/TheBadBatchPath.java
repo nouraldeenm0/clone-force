@@ -23,48 +23,30 @@ import java.util.HashMap;
 
 public class TheBadBatchPath {
     int[] fuel = { 2, 3, 1, 1, 4 };
-    int[] fuel2 = { 9, 7, 7, 9, 8, 9, 9, 9, 9, 5, 5, 10, 7, 5, 8, 10, 7, 7, 10, 8, 5, 7, 5, 8, 8, 10, 6, 9, 5, 9, 7,
-            7, 7, 7, 6, 6, 7, 8, 10, 10, 8, 7, 6, 8, 7, 10, 6, 5, 7, 7, 8, 5, 8, 9, 10, 5, 7, 8, 7, 6, 10, 6, 9, 9,
-            7, 7, 5, 8, 8, 7, 8, 10, 9, 7, 9, 5, 9, 8, 5, 8, 5, 7, 8, 5, 8, 7, 7, 10, 7, 8, 9, 9, 8, 5, 6, 9, 8, 5,
-            9, 5, 9, 5, 6, 6, 10, 8, 7, 9, 5, 5, 8, 7, 8, 10, 9, 5, 6, 5, 10, 5, 8, 5, 6, 5, 8, 8, 7, 10, 10, 5, 7,
-            10, 10, 8, 5, 7, 6, 6, 10, 8, 10, 5, 8, 5, 5, 5, 10, 6, 9, 6, 5, 6, 6, 8, 8, 7, 7, 6, 6, 10, 7, 5, 8, 7,
-            6, 8, 9, 7, 5, 7, 6, 9, 10, 8, 10, 8, 8, 5, 8, 6, 5, 6, 8, 10, 5, 10, 9, 6, 6, 5, 8, 8, 9, 9, 5, 8, 8,
-            10, 10, 9, 5, 6, 8, 5, 10, 7, 7, 9, 5, 7, 5, 7, 9, 5, 7, 7, 6, 6, 6, 9, 10, 9, 5, 7, 8, 10, 9, 7, 6, 7,
-            10, 10, 5, 6, 7, 9, 10, 10, 9, 8, 5, 10, 10, 7, 10, 9, 6, 9, 5, 10, 5, 5, 8, 9, 6, 5, 7, 7, 5, 9, 7, 6,
-            5, 7, 8, 5, 9, 5, 7, 8, 5, 9, 8, 6, 5, 10, 8, 7, 6, 5, 8, 10, 10, 8, 7, 6, 5, 5, 10, 5, 9, 6, 9, 10, 7,
-            7, 10, 8, 7, 9, 9, 5, 6, 10, 10, 6, 9, 5, 5, 7, 10, 6, 10, 5, 5, 8, 9, 7, 5, 5, 7, 5, 7, 10, 6, 5, 9, 9,
-            7, 6, 10, 5, 8, 9, 8, 6, 8, 5, 8, 8, 9, 7, 5, 9, 9, 8, 10, 8, 9, 9, 5, 8, 5, 8, 9, 5, 9, 5, 7, 7, 6, 8,
-            10, 7, 6, 5, 5, 6, 7, 5, 5, 6, 8, 6, 10, 10, 7, 6, 9, 10, 10, 8, 10, 6, 7, 8, 5, 7, 8, 5, 8, 7, 5, 10,
-            7, 5, 8, 7, 5, 10, 7, 6, 10, 5, 7, 6, 8, 8, 7, 10, 5, 10, 10, 10, 6, 8, 8, 7, 5, 5, 10, 10, 6, 8, 9, 9,
-            10, 9, 6, 8, 5, 8, 7, 8, 8, 10, 7, 6, 8, 9, 7, 8, 7, 9, 6, 5, 10, 8, 9, 10, 5, 8, 6, 10, 6, 10, 10, 10,
-            7, 8, 10, 7, 8, 10, 5, 7, 9, 9, 5, 6, 8, 5, 10, 6, 7, 7, 6, 8, 5, 8, 9, 5, 10, 8, 8, 7, 10, 10, 9, 10,
-            9, 8, 7, 6, 8, 10, 10, 8, 5, 7, 7, 10, 9, 8, 9, 10, 6, 7, 5, 5, 10, 6, 6, 10, 9, 5, 7, 5, 9, 6, 7, 5, 9,
-            7, 10, 5, 6, 8, 7, 10, 5, 6, 7, 8, 7, 10, 8, 10, 6, 9, 6, 9, 6, 6, 5, 8, 8, 6, 9, 9, 6, 6, 6, 10, 6, 5,
-            7, 5, 7, 5, 10, 9, 8, 9, 5, 7, 5, 8, 10, 7, 5, 10, 5, 10, 8, 5, 7, 10, 9, 8, 8, 8, 8, 7, 8, 6, 9, 6, 6,
-            8, 9, 7, 6, 9, 8, 10, 5, 5, 10, 6, 9, 10, 10, 8, 5, 9, 10, 6, 10, 9, 5, 6, 5, 10, 9, 9, 7, 9, 6, 5, 7,
-            6, 8, 7, 9, 7, 7, 6, 6, 7, 8, 5, 8, 10, 7, 5, 10, 6, 9, 5, 10, 8, 5, 9, 7, 10, 6, 6, 6, 8, 9, 9, 5, 8,
-            5, 8, 8, 6, 7, 8, 7, 10, 9, 7, 8, 9, 9, 10, 8, 10, 10, 9, 5, 7, 5, 10, 9, 6, 8, 6, 9, 10, 9, 6, 9, 6, 6,
-            8, 9, 8, 8, 8, 9, 7, 8, 6, 8, 6, 8, 5, 8, 9, 8, 6, 9, 9, 6, 7, 6, 7, 5, 8, 8, 10, 8, 8, 5, 6, 9, 9, 5,
-            7, 7, 5, 5, 6, 9, 9, 10, 5, 10, 9, 7, 10, 7, 7, 5, 10, 5, 8, 9, 6, 8, 10, 8, 8, 6, 6, 9, 8, 10, 8, 9, 5,
-            8, 5, 6, 5, 6, 10, 5, 5, 6, 10, 10, 10, 9, 8, 8, 5, 8, 5, 7, 7, 8, 9, 9, 10, 5, 6, 10, 7, 8, 10, 5, 9,
-            10, 5, 5, 9, 7, 5, 9, 5, 10, 7, 6, 10, 9, 7, 9, 6, 8, 6, 7, 9, 7, 6, 10, 8, 6, 10, 9, 5, 6, 9, 6, 7, 7,
-            10, 8, 8, 7, 9, 5, 8, 9, 7, 10, 10, 10, 5, 5, 6, 6, 10, 5, 5, 7, 10, 10, 10, 6, 10, 5, 7, 5, 9, 9, 6, 7,
-            5, 10, 8, 10, 8, 8, 7, 6, 6, 7, 9, 6, 5, 5, 9, 6, 7, 6, 10, 5, 5, 9, 7, 9, 5, 7, 10, 6, 10, 5, 10, 7, 8,
-            7, 6, 7, 10, 9, 6, 10, 8, 7, 6, 9, 6, 10, 6, 6, 7, 7, 9, 9, 8, 6, 6, 10, 5, 7, 7, 7, 10, 10, 5, 6, 8, 8,
-            7, 6, 7, 8, 10, 10, 8, 5, 9, 5, 7, 7, 6, 7, 8, 7, 7, 8, 6, 7, 7, 10, 5, 9, 8, 6, 8, 8, 5, 7, 6, 8, 9,
-            10, 5, 7, 10, 8, 6, 9, 8, 6, 7, 5, 8, 6, 6, 6, 6, 6, 10, 8, 8, 10, 7, 5, 8, 8, 10, 8, 6, 7, 9, 5, 9, 9,
-            9, 7, 5, 9, 7, 10, 8, 7, 9, 6, 6, 7, 5, 9, 9, 5, 10 };
+    int[] fuel2 = { 8, 8, 8, 9, 2, 8, 5, 8, 0, 8, 0, 1, 0, 1, 3, 0, 2, 8, 5, 5, 6, 9, 10, 1, 2, 1, 4, 7, 6, 4, 5, 2,
+        0, 2, 9, 5, 10, 8, 3, 3, 3, 1, 1, 8, 4, 2, 1, 10, 7, 7 };
     HashMap<Integer, Integer> memo = new HashMap<>();
     static int hits = 0;
 
     public static void main(String[] args) {
         var obj = new TheBadBatchPath();
 
-        // System.out.println("Output DP: " + obj.TatooineToNabooDP(obj.fuel));
-        System.out.println("Output Path: " + obj.TatooineToNabooPath(obj.fuel2).size());
+        System.out.println("Output DP: " + TatooineToNabooDP(obj.fuel));
+        System.out.println("Output Path: " + TatooineToNabooPath(obj.fuel));
         // System.out.println("Hits: " + TheBadBatchPath.hits);
         // System.out.println("fuel2 length: " + obj.fuel2.length);
         // System.out.println("Output Path: " + TatooineToNabooPath(fuel));
+    }
+
+    public static int TatooineToNabooDP(int[] fuel) {
+        var obj = new TheBadBatchPath();
+        return obj.helperDP(fuel);
+    }
+    public static ArrayList<Integer> TatooineToNabooPath(int[] fuel) {
+        var obj = new TheBadBatchPath();
+        var ret = obj.helperPath(fuel);
+        ret.add(fuel.length - 1);
+        return ret;
     }
 
 /*
@@ -95,7 +77,7 @@ public class TheBadBatchPath {
     *                                                                                           /
     *                                                                                          2
     */
-    public int TatooineToNabooDP(int[] fuel) {
+    public int helperDP(int[] fuel) {
         if (this.memo.containsKey(fuel.length)) {
             return this.memo.get(fuel.length);
         }
@@ -113,19 +95,18 @@ public class TheBadBatchPath {
 
             if (endIsReachable) {
                 int[] subArray = Arrays.copyOfRange(fuel, 0, i + 1);
-                min = Math.min(TatooineToNabooDP(subArray) + 1, min);
+                min = Math.min(helperDP(subArray) + 1, min);
             }
         }
         this.memo.put(fuel.length, min);
         return min;
     }
 
-    public ArrayList<Integer> TatooineToNabooPath(int[] fuel) {
+    public ArrayList<Integer> helperPath(int[] fuel) {
         ArrayList<Integer> path = new ArrayList<>();
 
         if (fuel.length == 1) {
             ArrayList<Integer> base = new ArrayList<>();
-            base.add(fuel[0]);
             return base;
         }
 
@@ -141,10 +122,10 @@ public class TheBadBatchPath {
                 int[] subArray = Arrays.copyOfRange(fuel, 0, i + 1);
 
                 // we only want to add the path if it is the minimum costing path, AI has helped here
-                int subArrayMin = TatooineToNabooDP(subArray) + 1;
+                int subArrayMin = helperDP(subArray) + 1;
                 if (subArrayMin < min) {
                     min = subArrayMin;
-                    path = TatooineToNabooPath(subArray);
+                    path = helperPath(subArray);
                     path.add(i);
                 }
             }
