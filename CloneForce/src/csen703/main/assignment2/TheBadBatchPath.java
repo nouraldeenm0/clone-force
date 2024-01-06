@@ -29,19 +29,19 @@ public class TheBadBatchPath {
     static int hits = 0;
 
     public static void main(String[] args) {
-        var obj = new TheBadBatchPath();
+        TheBadBatchPath obj = new TheBadBatchPath();
 
         System.out.println("Output DP: " + TatooineToNabooDP(obj.fuel));
         System.out.println("Output Path: " + TatooineToNabooPath(obj.fuel));
     }
 
     public static int TatooineToNabooDP(int[] fuel) {
-        var obj = new TheBadBatchPath();
+        TheBadBatchPath obj = new TheBadBatchPath();
         return obj.helperDP(fuel);
     }
     public static ArrayList<Integer> TatooineToNabooPath(int[] fuel) {
-        var obj = new TheBadBatchPath();
-        var ret = obj.helperPath(fuel);
+        TheBadBatchPath obj = new TheBadBatchPath();
+        ArrayList<Integer> ret = obj.helperPath(fuel);
         ret.add(fuel.length - 1);
         return ret;
     }
