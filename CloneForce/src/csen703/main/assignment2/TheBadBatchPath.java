@@ -12,7 +12,7 @@
  * @name
  * @id 
  * @TutorialNumber
- 
+
 */
 
 package csen703.main.assignment2;
@@ -33,9 +33,6 @@ public class TheBadBatchPath {
 
         System.out.println("Output DP: " + TatooineToNabooDP(obj.fuel));
         System.out.println("Output Path: " + TatooineToNabooPath(obj.fuel));
-        // System.out.println("Hits: " + TheBadBatchPath.hits);
-        // System.out.println("fuel2 length: " + obj.fuel2.length);
-        // System.out.println("Output Path: " + TatooineToNabooPath(fuel));
     }
 
     public static int TatooineToNabooDP(int[] fuel) {
@@ -94,8 +91,8 @@ public class TheBadBatchPath {
             boolean endIsReachable = fuelInPlanet >= distToEnd;
 
             if (endIsReachable) {
-                int[] subArray = Arrays.copyOfRange(fuel, 0, i + 1);
-                min = Math.min(helperDP(subArray) + 1, min);
+                int[] branch = Arrays.copyOfRange(fuel, 0, i + 1);
+                min = Math.min(helperDP(branch) + 1, min);
             }
         }
         this.memo.put(fuel.length, min);
@@ -109,7 +106,7 @@ public class TheBadBatchPath {
             return new ArrayList<>();
         }
 
-        int min = Integer.MAX_VALUE;
+        int minimalCostingPath = Integer.MAX_VALUE;
         int lastIndx = fuel.length - 1;
 
         for (int i = 0; i <= fuel.length - 2; ++i) {
@@ -118,13 +115,19 @@ public class TheBadBatchPath {
             boolean endIsReachable = fuelInPlanet >= distToEnd;
 
             if (endIsReachable) {
-                int[] subArray = Arrays.copyOfRange(fuel, 0, i + 1);
+                int[] branch = Arrays.copyOfRange(fuel, 0, i + 1);
 
-                // we only want to go through the minimum costing path namely [2, 3] and avoiding [2, 3, 1, 1], AI has helped here
-                int subArrayMin = helperDP(subArray) + 1;
-                if (subArrayMin < min) {
-                    min = subArrayMin;
-                    path = helperPath(subArray);
+                // we add one to account for the cost of going to that branch, the tree figure above might make it clearer
+                int branchCost = helperDP(branch) + 1;
+
+                // FIRST TIME WE ENTER THE IF STATEMENT:
+                // if this branch[ex: [2, 3]] (that we got after knowing it would reach the end) has a cost less than the current minumum branch cost[Integer.MAX_VALUE] then we go through it and update the minimum cost
+                // SECOND TIME WE ENTER THE IF STATEMENT:
+                // if the branch [2, 3, 1, 1] has a cost less than the current minimum cost [2, 3] then we go through it and update the minimum cost, but that is not the case here
+
+                if (branchCost < minimalCostingPath) {
+                    minimalCostingPath = branchCost;
+                    path = helperPath(branch);
                     path.add(i);
                 }
             }
