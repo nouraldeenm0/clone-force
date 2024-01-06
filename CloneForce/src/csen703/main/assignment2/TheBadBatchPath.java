@@ -23,10 +23,7 @@ import java.util.HashMap;
 
 public class TheBadBatchPath {
     int[] fuel = { 2, 3, 1, 1, 4 };
-    int[] fuel2 = { 8, 8, 8, 9, 2, 8, 5, 8, 0, 8, 0, 1, 0, 1, 3, 0, 2, 8, 5, 5, 6, 9, 10, 1, 2, 1, 4, 7, 6, 4, 5, 2,
-        0, 2, 9, 5, 10, 8, 3, 3, 3, 1, 1, 8, 4, 2, 1, 10, 7, 7 };
     HashMap<Integer, Integer> memo = new HashMap<>();
-    static int hits = 0;
 
     public static void main(String[] args) {
         TheBadBatchPath obj = new TheBadBatchPath();
@@ -67,9 +64,9 @@ public class TheBadBatchPath {
     *                                                      +1 /             +1 /   MIN    \ +1
     *                                                        /                /            \
     *                                                       2               2, 3           2, 3, 1
-    *                                                                     +1 /             / MIN \ +1
-    *                                                                       /          +1 /       \
-    *                                                                      2             2       2, 3
+    *                                                                    +1 /              / MIN \ +1
+    *                                                                      /           +1 /       \
+    *                                                                     2              2       2, 3
     *                                                                                         +1 /
     *                                                                                           /
     *                                                                                          2

@@ -22,7 +22,7 @@ public class Assignment2Tests {
 		Integer result = TheBadBatchPath.TatooineToNabooDP(fuel);
 		assertEquals(2, result);
 	}
-
+ 
 	@Test
 	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
 	public void testatooineToNabooDP2() {
@@ -189,6 +189,48 @@ public class Assignment2Tests {
 		assertEquals(350, result);
 	}
 
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooDP6() {
+		int[] fuel = { 2, 0, 5, 10, 8, 4, 4, 4, 0, 10, 10, 10, 8, 7, 2, 10, 0, 3, 0, 1, 7, 9, 4, 8, 7, 1, 2, 2, 6, 4, 1,
+				1, 7, 7, 1, 5, 5, 1, 2, 6, 3, 7, 7, 9, 2, 4, 8, 1, 0, 10 };
+		Integer result = TheBadBatchPath.TatooineToNabooDP(fuel);
+		assertEquals(9, result);
+	}
+	
+	
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooDP7() {
+		int[] fuel = {8, 8, 0, 7, 2, 9, 8, 2, 0, 9, 9, 8, 9, 1, 1, 4, 3, 6, 10, 9, 4, 8, 8, 7, 8, 7, 0, 8, 5, 2, 1, 1, 5, 0, 3, 3, 1, 0, 1, 3, 6, 1, 6, 9, 1, 4, 0, 8, 7, 7};
+		Integer result = TheBadBatchPath.TatooineToNabooDP(fuel);
+		assertEquals(10, result);
+	}
+	
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooDP8() {
+		int[] fuel = {4, 6, 10, 4, 4, 2, 10, 5, 9, 0, 1, 0, 8, 10, 7, 10, 7, 10, 6, 3, 1, 1, 5, 4, 1, 8, 7, 7, 7, 2, 0, 10, 4, 8, 1, 8, 2, 10, 10, 9, 5, 7, 1, 2, 6, 10, 8, 4, 0, 5};
+		Integer result = TheBadBatchPath.TatooineToNabooDP(fuel);
+		assertEquals(8, result);
+	}
+	
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooDP9() {
+		int[] fuel = {7, 0, 7, 6, 1, 3, 10, 8, 6, 3, 5, 2, 3, 3, 6, 2, 5, 10, 3, 7, 4, 7, 8, 0, 8, 9, 8, 3, 6, 5, 1, 7, 8, 4, 7, 2, 7, 1, 3, 5, 6, 1, 9, 1, 3, 1, 9, 1, 4, 10};
+		Integer result = TheBadBatchPath.TatooineToNabooDP(fuel);
+		assertEquals(8, result);
+	}
+	
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooDP10() {
+		int[] fuel ={1, 3, 5, 6, 5, 9, 9, 3, 6, 10, 10, 3, 1, 9, 5, 1, 0, 7, 6, 3, 10, 9, 0, 9, 5, 9, 8, 1, 4, 9, 2, 4, 8, 2, 9, 9, 3, 4, 3, 2, 4, 8, 3, 2, 10, 1, 1, 9, 4, 6};
+		Integer result = TheBadBatchPath.TatooineToNabooDP(fuel);
+		assertEquals(9, result);
+	}
+
 //Path
 
 	public static boolean checkOrder(ArrayList<Integer> result, int[] fuel) {
@@ -270,7 +312,7 @@ public class Assignment2Tests {
 		assertEquals(true, correct);
 
 	}
-	
+
 	@Test
 	@Timeout(value = 20, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
 	public void testatooineToNabooPath4() {
@@ -304,13 +346,14 @@ public class Assignment2Tests {
 				3, 4, 3, 9, 8, 8, 6, 1, 7, 4, 6, 0, 7, 10, 5, 5, 4, 1, 2, 1, 3, 0, 4, 0, 1, 8, 0, 0, 4, 5, 7, 4, 9, 1,
 				1, 2, 2, 8, 5, 8, 3, 9, 0, 6, 1, 7, 10, 0, 3, 6, 6, 2, 0, 4, 4, 1, 5, 7, 7, 1, 4, 3, 9, 7, 4, 3, 10, 10,
 				2, 7, 9, 5, 5, 5, 6, 0, 2, 10, 1, 6, 5, 9, 5, 6, 2, 2, 10, 8, 6, 10, 9, 8 };
-		
+
 		ArrayList<Integer> result = TheBadBatchPath.TatooineToNabooPath(fuel);
 		boolean correct = result.size() == 144 && checkOrder(result, fuel);
 
 		assertEquals(true, correct);
 
 	}
+
 	@Test
 	@Timeout(value = 20, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
 	public void testatooineToNabooPath5() {
@@ -389,10 +432,72 @@ public class Assignment2Tests {
 				7, 2, 3, 6, 5, 1, 9, 9, 10, 9, 5, 8, 6, 7, 8, 0, 0, 4, 8, 5, 2, 6, 3, 5, 7, 0, 0, 7, 5, 2, 4, 7, 0, 6,
 				1, 1, 5, 8, 3, 2, 9, 9, 7, 1, 0, 3, 5, 10, 1, 0, 1, 3, 7, 9, 9, 6, 8, 3, 4, 5, 1, 9, 0, 4, 4, 7, 6, 5,
 				2, 9, 0, 2, 4, 6, 4, 2, 6, 5, 5, 3, 1, 5, 9, 2, 10, 10, 5, 3, 5 };
-		
+
 		ArrayList<Integer> result = TheBadBatchPath.TatooineToNabooPath(fuel);
 		boolean correct = result.size() == 351 && checkOrder(result, fuel);
 
 		assertEquals(true, correct);
 	}
+
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooPath6() {
+		int[] fuel = { 2, 0, 5, 10, 8, 4, 4, 4, 0, 10, 10, 10, 8, 7, 2, 10, 0, 3, 0, 1, 7, 9, 4, 8, 7, 1, 2, 2, 6, 4, 1,
+				1, 7, 7, 1, 5, 5, 1, 2, 6, 3, 7, 7, 9, 2, 4, 8, 1, 0, 10 };
+		ArrayList<Integer> result = TheBadBatchPath.TatooineToNabooPath(fuel);
+		boolean correct = result.size() == 10 && checkOrder(result, fuel);
+
+		assertEquals(true, correct);
+
+	}
+	
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooPath7() {
+		int[] fuel = {8, 8, 0, 7, 2, 9, 8, 2, 0, 9, 9, 8, 9, 1, 1, 4, 3, 6, 10, 9, 4, 8, 8, 7, 8, 7, 0, 8, 5, 2, 1, 1, 5, 0, 3, 3, 1, 0, 1, 3, 6, 1, 6, 9, 1, 4, 0, 8, 7, 7};
+
+		ArrayList<Integer> result = TheBadBatchPath.TatooineToNabooPath(fuel);
+		boolean correct = result.size() == 11 && checkOrder(result, fuel);
+
+		assertEquals(true, correct);
+
+	}
+
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooPath8() {
+		int[] fuel = {4, 6, 10, 4, 4, 2, 10, 5, 9, 0, 1, 0, 8, 10, 7, 10, 7, 10, 6, 3, 1, 1, 5, 4, 1, 8, 7, 7, 7, 2, 0, 10, 4, 8, 1, 8, 2, 10, 10, 9, 5, 7, 1, 2, 6, 10, 8, 4, 0, 5};
+
+		ArrayList<Integer> result = TheBadBatchPath.TatooineToNabooPath(fuel);
+		boolean correct = result.size() == 9 && checkOrder(result, fuel);
+
+		assertEquals(true, correct);
+
+	}
+
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooPath9() {
+		int[] fuel = {7, 0, 7, 6, 1, 3, 10, 8, 6, 3, 5, 2, 3, 3, 6, 2, 5, 10, 3, 7, 4, 7, 8, 0, 8, 9, 8, 3, 6, 5, 1, 7, 8, 4, 7, 2, 7, 1, 3, 5, 6, 1, 9, 1, 3, 1, 9, 1, 4, 10};
+
+		ArrayList<Integer> result = TheBadBatchPath.TatooineToNabooPath(fuel);
+		boolean correct = result.size() == 9 && checkOrder(result, fuel);
+
+		assertEquals(true, correct);
+
+	}
+
+	@Test
+	@Timeout(value = 10, unit = TimeUnit.MILLISECONDS, threadMode = ThreadMode.SEPARATE_THREAD)
+	public void testatooineToNabooPath10() {
+		int[] fuel ={1, 3, 5, 6, 5, 9, 9, 3, 6, 10, 10, 3, 1, 9, 5, 1, 0, 7, 6, 3, 10, 9, 0, 9, 5, 9, 8, 1, 4, 9, 2, 4, 8, 2, 9, 9, 3, 4, 3, 2, 4, 8, 3, 2, 10, 1, 1, 9, 4, 6};
+
+		ArrayList<Integer> result = TheBadBatchPath.TatooineToNabooPath(fuel);
+		boolean correct = result.size() == 10 && checkOrder(result, fuel);
+
+		assertEquals(true, correct);
+
+	}
+
+	
 }
