@@ -25,13 +25,6 @@ public class TheBadBatchPath {
     int[] fuel = { 2, 3, 1, 1, 4 };
     HashMap<Integer, Integer> memo = new HashMap<>();
 
-    public static void main(String[] args) {
-        TheBadBatchPath obj = new TheBadBatchPath();
-
-        System.out.println("Output DP: " + TatooineToNabooDP(obj.fuel));
-        System.out.println("Output Path: " + TatooineToNabooPath(obj.fuel));
-    }
-
     public static int TatooineToNabooDP(int[] fuel) {
         TheBadBatchPath obj = new TheBadBatchPath();
         return obj.helperDP(fuel);
@@ -89,7 +82,11 @@ public class TheBadBatchPath {
 
             if (endIsReachable) {
                 int[] branch = Arrays.copyOfRange(fuel, 0, i + 1);
-                min = Math.min(helperDP(branch) + 1, min);
+                int branchCost = helperDP(branch) + 1;
+
+                if (branchCost < min) {
+                    min = branchCost;
+                }
             }
         }
         this.memo.put(fuel.length, min);
@@ -113,14 +110,7 @@ public class TheBadBatchPath {
 
             if (endIsReachable) {
                 int[] branch = Arrays.copyOfRange(fuel, 0, i + 1);
-
-                // we add one to account for the cost of going to that branch, the tree figure above might make it clearer
                 int branchCost = helperDP(branch) + 1;
-
-                // FIRST TIME WE ENTER THE IF STATEMENT:
-                // if this branch[ex: [2, 3]] (that we got after knowing it would reach the end) has a cost less than the current minumum branch cost[Integer.MAX_VALUE] then we go through it and update the minimum cost
-                // SECOND TIME WE ENTER THE IF STATEMENT:
-                // if the branch [2, 3, 1, 1] has a cost less than the current minimum cost [2, 3] then we go through it and update the minimum cost, but that is not the case here
 
                 if (branchCost < minimalCostingPath) {
                     minimalCostingPath = branchCost;
